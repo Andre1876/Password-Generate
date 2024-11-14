@@ -1,28 +1,18 @@
 import random
 import string
 
-def generate_password(length=12, use_special_chars=True, use_digits=True, use_uppercase=True, use_lowercase=True):
-    # Create the pool of characters to choose from
-    characters = ''
+def generate_password(length=12):
+    # Define the characters to choose from (letters, digits, and punctuation)
+    characters = string.ascii_letters + string.digits + string.punctuation
     
-    if use_lowercase:
-        characters += string.ascii_lowercase
-    if use_uppercase:
-        characters += string.ascii_uppercase
-    if use_digits:
-        characters += string.digits
-    if use_special_chars:
-        characters += string.punctuation
-    
-    # Ensure the pool is not empty
-    if not characters:
-        raise ValueError("No character types selected. At least one type must be enabled.")
-    
-    # Randomly select characters to create the password
-    password = ''.join(random.choice(characters) for _ in range(length))
+    # Randomly select characters and join them to form a password
+    password = ''.join(random.choice(characters) for i in range(length))
     
     return password
 
-# Example usage
-password = generate_password(length=16, use_special_chars=True, use_digits=True, use_uppercase=True, use_lowercase=True)
-print("Generated password:", password)
+# Ask the user for the password length
+length = int(input("Enter the password length: "))
+
+# Generate and print the password
+password = generate_password(length)
+print(f"Generated password: {password}")
