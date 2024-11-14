@@ -1,5 +1,3 @@
-# Password-Generate-
-
 import random
 import string
 
@@ -26,5 +24,5 @@ def generate_password(length=12, use_special_chars=True, use_digits=True, use_up
     return password
 
 # Example usage
-password = generate_password(length=16)
+password = generate_password(length=16, use_special_chars=True, use_digits=True, use_uppercase=True, use_lowercase=True)
 print("Generated password:", password)
